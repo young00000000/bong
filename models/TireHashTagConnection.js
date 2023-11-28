@@ -1,0 +1,38 @@
+const Sequelize = require('sequelize');
+
+module.exports = class TireHashTagConnection extends Sequelize.Model {
+    static init(sequelize) {
+        return super.init({
+            TireHashTagConnectionID: {
+                type: Sequelize.STRING(30),
+                allowNull: false,
+                
+            },
+            WheelId: {
+                type: Sequelize.STRING(30),
+                allowNull: false,
+            },
+            BrandId: {
+                type: Sequelize.INTEGER,
+                allowNull: false,
+            },
+            HashTagId: {
+                type: Sequelize.STRING(30),
+                allowNull: false,
+            },
+            FilterId: {
+                type: Sequelize.STRING(30),
+                allowNull: false,
+            },
+        }, {
+            sequelize,
+            timestamps: true, // Set to true if you want timestamps
+            underscored: false,
+            modelName: 'TireHashTagConnection',
+            tableName: 'TireHashTagConnections', // Adjust the table name if needed
+            paranoid: true, // Set to true if you want soft deletes
+            charset: 'utf8',
+            collate: 'utf8_general_ci',
+        });
+    }
+}
